@@ -1,0 +1,13 @@
+{
+    "aps" : {
+        "alert" : {
+            "title" : "Time to TAIL Motherfucker!",
+            "body" : "Go make some money!"
+        },
+    },
+    "dubclub": {
+        "type": "play-published",
+        "url": "https://dubclub.win/privacy"
+    },
+    "Simulator Target Bundle": "win.dubclub.viewerApp"
+}

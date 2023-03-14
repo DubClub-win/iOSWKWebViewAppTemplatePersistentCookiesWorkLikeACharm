@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         //So keep in mind that your remote website should look and feel like iOS app (as much as possible),
         //especially if you are planning to distribute it via App Store and expect to successfully pass Apple's App Review
         
-        if let url = URL(string: "https://google.com") {
+        if let url = URL(string: "https://dubclub.win") {
             let request = URLRequest(url: url)
             webView.load(request)
             
