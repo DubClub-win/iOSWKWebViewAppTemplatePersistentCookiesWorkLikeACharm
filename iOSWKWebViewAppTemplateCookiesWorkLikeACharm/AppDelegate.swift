@@ -7,6 +7,10 @@
 import UIKit
 import UserNotifications
 
+extension Notification.Name {
+    static let viewPlay = Notification.Name("viewPlay")
+}
+
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print(deviceToken)
@@ -16,19 +20,47 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print(error)
     }
 
+    // Deal with notifications that are sent while the app is closed
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                 didReceive response: UNNotificationResponse,
                 withCompletionHandler completionHandler:
                                 @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo //as? Dictionary<String, String>
-        print("Got: %s", response.notification.request.content)
+        
+        if let dubclub =  response.notification.request.content.userInfo["dubclub"] as? Dictionary<String, Any> {
+            if let type = dubclub["type"] as? String {
+                if type == "play-published" {
+                    NotificationCenter.default.post(name: .viewPlay, object: "myObject", userInfo: dubclub)
+                }
+            }
+//                if let playUrl = dubclub["play_url"] as? String {
+//                    print("Play URL: \(playUrl)")
+//                }
+//                if let notificationUrl = dubclub["notification_url"] as? String {
+//                    print("Notification URL: \(notificationUrl)")
+//                }
+        }
+//        guard let userInfo = response.notification.request.content.userInfo["dubclub"] as! Dictionary<String, Any>
+//        else {
+//            guard let notification_type = userInfo["type"] as!String
+//            if userInfo["type"] == "play-published" {
+//
+//            }
     }
+    // Deal with notifications that are sent while the app is open
     func userNotificationCenter(_ center: UNUserNotificationCenter,
              willPresent notification: UNNotification,
              withCompletionHandler completionHandler:
                                 @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo //as? Dictionary<String, String>
-        print(userInfo["type"])
+        print(userInfo["dubclub"])
+        if let dubclub =  notification.request.content.userInfo["dubclub"] as? Dictionary<String, Any> {
+            if let type = dubclub["type"] as? String {
+                if type == "play-published" {
+                    NotificationCenter.default.post(name: .viewPlay, object: "myObject", userInfo: dubclub)
+                }
+            }
+        }
+
     }
 
 }
@@ -36,7 +68,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
 
     private func registerForPushNotifications() {
         UNUserNotificationCenter.current().delegate = self

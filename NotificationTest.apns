@@ -2,12 +2,15 @@
     "aps" : {
         "alert" : {
             "title" : "Time to TAIL Motherfucker!",
-            "body" : "Go make some money!"
+            "body" : "Go make some money!",
+            "action": "View",
+            "badge": 3
         },
     },
     "dubclub": {
         "type": "play-published",
-        "url": "https://dubclub.win/privacy"
+        "play_url": "https://dubclub.win/privacy",
+        "notification_url": "https://dubclub/win/notification_received/apns_1x22e"
     },
     "Simulator Target Bundle": "win.dubclub.viewerApp"
 }

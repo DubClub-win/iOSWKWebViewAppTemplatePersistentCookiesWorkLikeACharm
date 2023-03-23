@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4DE856DF29BEECAA0061506A /* Alternate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE856DE29BEECAA0061506A /* Alternate.swift */; };
 		A28AD83226CCA34E00BE1813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28AD83126CCA34E00BE1813 /* AppDelegate.swift */; };
 		A28AD83426CCA34E00BE1813 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28AD83326CCA34E00BE1813 /* SceneDelegate.swift */; };
 		A28AD83626CCA34E00BE1813 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28AD83526CCA34E00BE1813 /* ViewController.swift */; };
@@ -18,7 +17,6 @@
 
 /* Begin PBXFileReference section */
 		4DAB2BC229BEDC5E00D0B59C /* iOSWKWebViewAppTemplateCookiesWorkLikeACharm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSWKWebViewAppTemplateCookiesWorkLikeACharm.entitlements; sourceTree = "<group>"; };
-		4DE856DE29BEECAA0061506A /* Alternate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alternate.swift; sourceTree = "<group>"; };
 		A28AD82E26CCA34E00BE1813 /* iOSWKWebViewAppTemplateCookiesWorkLikeACharm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSWKWebViewAppTemplateCookiesWorkLikeACharm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28AD83126CCA34E00BE1813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A28AD83326CCA34E00BE1813 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 			children = (
 				4DAB2BC229BEDC5E00D0B59C /* iOSWKWebViewAppTemplateCookiesWorkLikeACharm.entitlements */,
 				A28AD83126CCA34E00BE1813 /* AppDelegate.swift */,
-				4DE856DE29BEECAA0061506A /* Alternate.swift */,
 				A28AD83326CCA34E00BE1813 /* SceneDelegate.swift */,
 				A28AD83526CCA34E00BE1813 /* ViewController.swift */,
 				A28AD83726CCA34E00BE1813 /* Main.storyboard */,
@@ -144,7 +141,6 @@
 			files = (
 				A28AD83626CCA34E00BE1813 /* ViewController.swift in Sources */,
 				A28AD83226CCA34E00BE1813 /* AppDelegate.swift in Sources */,
-				4DE856DF29BEECAA0061506A /* Alternate.swift in Sources */,
 				A28AD83426CCA34E00BE1813 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

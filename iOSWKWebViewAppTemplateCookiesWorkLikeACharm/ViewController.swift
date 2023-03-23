@@ -6,16 +6,38 @@
 
 import UIKit
 import WebKit
+import NotificationCenter
 
 class ViewController: UIViewController {
     
     private let webView = WKWebView(frame: .zero)
+    
+    func viewPlay(notification: Notification) {
+        var urlString = "https://google.com?q=shits+broke";
+
+        if let play_url = notification.userInfo?["play_url"] as? String {
+                urlString = play_url
+        }
+
+        if let url = URL(string: urlString) {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let app = UIApplication.shared
         
+        NotificationCenter.default.addObserver(forName: .viewPlay, object: nil, queue: nil) { [weak self] (notification) in
+            guard let strongSelf = self else {
+                return
+            }
+
+            strongSelf.viewPlay(notification: notification)
+        }
+
         //Even though XCode warns you that
         //'statusBarFrame' was deprecated in iOS 13.0: Use the statusBarManager property of the window scene instead
         //For me using this deprecated trick was the only working way to get statusBarHeight
@@ -105,16 +127,16 @@ class ViewController: UIViewController {
             //
             
             //Code Segment START - Prevent user from using pinch to zoom gesture, double tap to zoom webview
-            let source: String = "var meta = document.createElement('meta');" +
-                "meta.name = 'viewport';" +
-                "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" +
-                "var head = document.getElementsByTagName('head')[0];" +
-                "head.appendChild(meta);"
-            
-            let script: WKUserScript = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+//            let source: String = "var meta = document.createElement('meta');" +
+//                "meta.name = 'viewport';" +
+//                "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" +
+//                "var head = document.getElementsByTagName('head')[0];" +
+//                "head.appendChild(meta);"
+//
+//            let script: WKUserScript = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
             //Code Segment END - Prevent user from using pinch to zoom gesture, double tap to zoom webview
             
-            webView.configuration.userContentController.addUserScript(script)
+            //webView.configuration.userContentController.addUserScript(script)
         }
         
         //Let's put our custom colored Status Bar to front so it's not behind everything anymore
